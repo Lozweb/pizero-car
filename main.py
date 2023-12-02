@@ -109,11 +109,13 @@ if __name__ == '__main__':
 
     try:
 
+        thread_battery_handler = Thread(target=battery_handle)
         thread_manette_handler = Thread(target=manette_handler)
         thread_motor_setter = Thread(target=motor_setter)
         thread_direction_setter = Thread(target=direction_setter)
         thread_light_setter = Thread(target=light_setter)
         thread_flashing_light = Thread(target=flashing_setter)
+        thread_battery_handler.start()
         thread_manette_handler.start()
         thread_motor_setter.start()
         thread_direction_setter.start()

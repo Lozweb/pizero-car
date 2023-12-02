@@ -26,31 +26,25 @@ class Motor:
 
         value = (round(tpos * 100))
 
-        print(value)
-
         if direction == "forward" and value > 0:
             GPIO.output(self.Motor1A, GPIO.HIGH)
             GPIO.output(self.Motor1B, GPIO.LOW)
             GPIO.output(self.Motor1E, GPIO.HIGH)
             self.isRunning = True
-            print('Turn Forward...')
 
         elif direction == "backward" and value > 0:
             GPIO.output(self.Motor1A, GPIO.LOW)
             GPIO.output(self.Motor1B, GPIO.HIGH)
             GPIO.output(self.Motor1E, GPIO.HIGH)
             self.isRunning = True
-            print('Turn Backward...')
 
         elif value == 0:
             GPIO.output(self.Motor1E, GPIO.LOW)
             self.isRunning = False
-            print('Motor Stop...')
 
         else:
             GPIO.output(self.Motor1E, GPIO.LOW)
             self.isRunning = False
-            print('Motor Stop...')
 
     def change_direction(self):
         if self.current_direction == "forward":
